@@ -1,0 +1,20 @@
+tasks:
+  hello:
+    run: |
+      echo "👋 Bienvenue dans Hop!"
+      echo "Modifie ce fichier Hopfile pour ajouter tes propres tâches."
+  dev:
+    run: |
+      npx expo run:android
+  reset-app:
+    comment: "Clear Cache"
+    run: |
+      rm -rf ./android
+      npx expo prebuild -p android
+  migrate:
+    run: |
+      npx drizzle-kit generate
+  build:
+    run: |
+      cd ./android
+      ./gradlew assembleRelease
