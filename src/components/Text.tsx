@@ -1,15 +1,15 @@
-import { Text as RNText } from 'react-native';
+import { Text as RNText, TextProps } from 'react-native';
 import { twMerge } from "tailwind-merge";
 
-interface KazaTextProps {
+interface KazaTextProps extends TextProps {
   children?: string | string[];
   className?: string;
   bold?: boolean;
 }
 
-export default function Text({children, className, bold}: KazaTextProps) {
+export default function Text({children, className, bold, ...props}: KazaTextProps) {
 
   return (
-    <RNText className={twMerge(bold ? "font-sn-bold" : "font-sn", className)}>{children}</RNText>
+    <RNText className={twMerge(bold ? "font-sn-bold" : "font-sn", className)} {...props}>{children}</RNText>
   )
 }
