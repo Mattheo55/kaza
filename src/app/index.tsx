@@ -8,12 +8,13 @@ import { db } from "@/db/db";
 import { tasks } from "@/db/schema";
 import { frenchFormat } from "@/utils/formatDate";
 import { Langs } from "@/utils/langs";
+import { eq } from "drizzle-orm";
 import { useLiveQuery } from "drizzle-orm/expo-sqlite";
 import { FlatList, ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
-  const { data: task } = useLiveQuery(db.select().from(tasks));
+  const { data: task } = useLiveQuery(db.select().from(tasks).where(eq(tasks.isComplete, false)));
   const today = new Date();
 
   const MENU_MODULS = [
