@@ -1,23 +1,33 @@
-import { View } from 'react-native';
-import Card from './Card';
-import IconBackground from './IconBackground';
-import Text from './Text';
+import { Href, useRouter } from "expo-router";
+import { View } from "react-native";
+import Card from "./Card";
+import IconBackground from "./IconBackground";
+import Text from "./Text";
 
 interface ModulCardProps {
-    icon: string;
-    color: string;
-    title: string;
-    description?: string;
+  icon: string;
+  color: string;
+  title: string;
+  description?: string;
+  link: Href;
 }
 
-export default function ModulCard({icon, color, title, description}: ModulCardProps) {
+export default function ModulCard({ icon, color, title, description, link }: ModulCardProps) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(link);
+  }
+
   return (
-    <Card className='flex-1 self-stretch gap-2'>
-        <IconBackground icon={icon} color={color} />
-        <View>
-            <Text bold>{title}</Text>
-            <Text className='text-gray-300 text-wrap truncate' numberOfLines={2}>{description}</Text>
-        </View>
+    <Card className="flex-1 self-stretch gap-2" onPress={handleClick}>
+      <IconBackground icon={icon} color={color} />
+      <View>
+        <Text bold>{title}</Text>
+        <Text className="text-gray-300 text-wrap truncate" numberOfLines={2}>
+          {description}
+        </Text>
+      </View>
     </Card>
-  )
+  );
 }
