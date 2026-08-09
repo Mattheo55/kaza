@@ -47,6 +47,10 @@ export default function RootLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="index"/>
+
+      {/* MODULES */}
+      <Stack.Screen name='task'/>
+
     </Stack>
   );
 }

@@ -6,6 +6,7 @@ import Text from "@/components/Text";
 import ValueTile from "@/components/ValueTile";
 import { db } from "@/db/db";
 import { tasks } from "@/db/schema";
+import { Modules } from "@/type/Module";
 import { frenchFormat } from "@/utils/formatDate";
 import { Langs } from "@/utils/langs";
 import { eq } from "drizzle-orm";
@@ -17,48 +18,55 @@ export default function Index() {
   const { data: task } = useLiveQuery(db.select().from(tasks).where(eq(tasks.isComplete, false)));
   const today = new Date();
 
-  const MENU_MODULS = [
+  const MENU_MODULS: Modules[] = [
     {
       title: "Course",
       description: "0 articles",
       icon: "list",
       color: "#C99A3E",
+      href: "/task"
     },
     {
       title: "Calendrier",
       description: "Mar 18:00 -- Rendez vous",
       icon: "calendar",
       color: "#5B8A82",
+      href: "/",
     },
     {
       title: "Entretien",
       description: "Détecteur de fumé -- Vérifier pile",
       icon: "gears",
       color: "#B0655A",
+      href: "/",
     },
     {
       title: "Recettes",
       description: "Gratin de feur",
       icon: "apple",
       color: "#9A8A5B",
+      href: "/",
     },
     {
       title: "Inventaire",
       description: "3 articles bas",
       icon: "archive",
       color: "#5B6E8A",
+      href: "/",
     },
     {
       title: "Documents",
       description: "4 documents",
       icon: "paper",
       color: "#7A6E8A",
+      href: "/",
     },
     {
       title: "Routines",
       description: "0/4 faites aujourd'hui",
       icon: "sunrise",
       color: "#8A9A5B",
+      href: "/",
     },
   ];
 
@@ -100,6 +108,7 @@ export default function Index() {
               color={item.color}
               title={item.title}
               description={item.description}
+              link={item.href}
             />
           )}
           keyExtractor={(item) => item.title}
