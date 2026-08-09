@@ -7,13 +7,14 @@ import BottomSheet from "./BottomSheet";
 
 const CreateTaskModal = NiceModal.create(() => {
     const [name, setName] = useState<string>("");
+    const [isSubmiting, setIsSubmitting] = useState<boolean>(false)
     const modal = useModal();
 
     const handleValide = async () => {
-        if(name.trim().length === 0) return;
-
-        await db.insert(tasks).values({name})
-
+        const taskName = name.trim();
+        if(taskName.length === 0 && isSubmiting) return;
+        await db.insert(tasks).values({name: taskName});
+        setIsSubmitting(true)
         modal.remove();
     }
 

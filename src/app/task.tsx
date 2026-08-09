@@ -26,7 +26,7 @@ export default function task() {
         subtitle={`${taskLeft.length} à faire`}
         actions={[
             {title: "Ajouter une tâche", icon: "add", onPress: handleOpenModal},
-            {title: "Supprimer les tâches finis", icon: "trash", onPress: clearAllTaskComplete},
+            {title: "Supprimer les tâches terminées", icon: "trash", onPress: clearAllTaskComplete},
         ]}
     >
         <FlatList
