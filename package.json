@@ -3,6 +3,7 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
+    "@ebay/nice-modal-react": "^1.2.13",
     "@expo/ui": "~57.0.9",
     "@getpapillon/papicons": "^0.2.3",
     "babel-plugin-inline-import": "^3.0.0",
@@ -26,6 +27,7 @@
     "react-dom": "19.2.3",
     "react-native": "0.86.2",
     "react-native-gesture-handler": "~2.32.0",
+    "react-native-modal": "^14.0.0-rc.1",
     "react-native-reanimated": "4.5.1",
     "react-native-safe-area-context": "~5.7.0",
     "react-native-screens": "~4.26.0",

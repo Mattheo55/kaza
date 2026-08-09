@@ -25,7 +25,7 @@ export default function ModulePage({children, title, subtitle, actions}: ModulCa
     <SafeAreaView className='flex-1 p-5'>
         <View>
             <Text className='text-3xl' bold>{title}</Text>
-            <Text className='text-gray-300 text-sm'>{subtitle}</Text>
+            <Text className='text-gray-300'>{subtitle}</Text>
         </View>
         {children}
         <TouchableOpacity className='bg-white rounded-full w-[50px] h-[50px] items-center justify-center absolute bottom-20 left-10 elevation-sm z-50' onPress={handleBackHome}>

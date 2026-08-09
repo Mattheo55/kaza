@@ -1,5 +1,6 @@
 import Text from '@/components/Text';
 import { db } from '@/db/db';
+import NiceModal from '@ebay/nice-modal-react';
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
 import { useFonts } from 'expo-font';
 import { Stack } from "expo-router";
@@ -45,12 +46,14 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index"/>
+    <NiceModal.Provider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index"/>
 
-      {/* MODULES */}
-      <Stack.Screen name='task'/>
+        {/* MODULES */}
+        <Stack.Screen name='task'/>
 
-    </Stack>
+      </Stack>
+    </NiceModal.Provider>
   );
 }
