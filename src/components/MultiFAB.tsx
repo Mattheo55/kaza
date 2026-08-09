@@ -1,11 +1,11 @@
-import { FAbAction } from '@/type/FABAction'
+import { FABAction } from '@/type/FABAction'
 import { Papicons } from '@getpapillon/papicons'
 import { useState } from 'react'
 import { Pressable, TouchableOpacity, View } from 'react-native'
 import Text from './Text'
 
 interface MultiFABProps {
-    actions: FAbAction[]
+    actions: FABAction[]
 }
 
 export default function MultiFAB({actions}: MultiFABProps) {
@@ -20,8 +20,8 @@ export default function MultiFAB({actions}: MultiFABProps) {
             {isOpen && (
                 <View className='bg-white rounded-2xl mb-4 mr-2 elevation-sm'>
                     {actions.map(action => (
-                        <Pressable onPress={action.onPress} className='flex-row gap-2 items-center p-4'>
-                            <Papicons name={action.icon!} color='#0057ff'/>
+                        <Pressable key={action.title} onPress={action.onPress} className='flex-row gap-2 items-center p-4'>
+                            <Papicons name={action.icon} color='#0057ff'/>
                             <Text>{action.title}</Text>
                         </Pressable>
                     ))}

@@ -1,4 +1,4 @@
-import { Href } from "expo-router";
+import { Href, useRouter } from "expo-router";
 import { View } from "react-native";
 import Card from "./Card";
 import IconBackground from "./IconBackground";
@@ -12,11 +12,15 @@ interface ModulCardProps {
   link: Href;
 }
 
-export default function ModulCard(
-  { icon, color, title, description, link }: ModulCardProps,
-) {
+export default function ModulCard({ icon, color, title, description, link }: ModulCardProps) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(link);
+  }
+
   return (
-    <Card className="flex-1 self-stretch gap-2">
+    <Card className="flex-1 self-stretch gap-2" onPress={handleClick}>
       <IconBackground icon={icon} color={color} />
       <View>
         <Text bold>{title}</Text>

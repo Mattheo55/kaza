@@ -1,4 +1,4 @@
-import { FAbAction } from '@/type/FABAction'
+import { FABAction } from '@/type/FABAction'
 import { Home } from '@getpapillon/papicons'
 import { useRouter } from 'expo-router'
 import { ReactNode } from 'react'
@@ -11,14 +11,14 @@ interface ModulCardProps {
     children?: ReactNode,
     title?: string,
     subtitle?: string,
-    actions?: FAbAction[];
+    actions?: FABAction[];
 }
 
 export default function ModulePage({children, title, subtitle, actions}: ModulCardProps) {
     const router = useRouter();
 
     const handleBackHome = () => {
-        router.back();
+        router.dismissTo("/");
     }
 
   return (

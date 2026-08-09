@@ -1,5 +1,5 @@
-export type FAbAction = {
+export type FABAction = {
     title: string;
-    icon?: string;
+    icon: string;
     onPress?: () => void;
 }
