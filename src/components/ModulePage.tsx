@@ -23,7 +23,7 @@ export default function ModulePage({children, title, subtitle, actions}: ModulCa
 
   return (
     <SafeAreaView className='flex-1 p-5'>
-        <View>
+        <View className='mb-5'>
             <Text className='text-3xl' bold>{title}</Text>
             <Text className='text-gray-300'>{subtitle}</Text>
         </View>

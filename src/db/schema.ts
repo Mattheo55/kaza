@@ -1,3 +1,4 @@
+import { InferSelectModel } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const tasks = sqliteTable('tasks', {
@@ -5,3 +6,5 @@ export const tasks = sqliteTable('tasks', {
     name: text().notNull(),
     isComplete: integer({mode: "boolean"}).default(false).notNull()
 })
+
+export type Task = InferSelectModel<typeof tasks>;

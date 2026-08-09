@@ -14,13 +14,13 @@ export default function MultiFAB({actions}: MultiFABProps) {
     const handleOpen = () => {
         setIsOpen(!isOpen);
     }
-    
+
     return (
         <View className='absolute bottom-20 right-10 items-end transition-all'>
             {isOpen && (
                 <View className='bg-white rounded-2xl mb-4 mr-2 elevation-sm'>
                     {actions.map(action => (
-                        <Pressable key={action.title} onPress={action.onPress} className='flex-row gap-2 items-center p-4'>
+                        <Pressable key={action.title} onPress={() => {setIsOpen(false); action.onPress()}} className='flex-row gap-2 items-center p-4'>
                             <Papicons name={action.icon} color='#0057ff'/>
                             <Text>{action.title}</Text>
                         </Pressable>
